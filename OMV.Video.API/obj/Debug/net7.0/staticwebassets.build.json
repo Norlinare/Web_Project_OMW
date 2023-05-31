@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KTF0V15ZhatFEzm6E0ySHIHnIE+lFSsS8+fOdxKTYxU=",
+  "Source": "OMV.Video.API",
+  "BasePath": "_content/OMV.Video.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

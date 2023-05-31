@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OMV.UI.Client.props" />
+</Project>
