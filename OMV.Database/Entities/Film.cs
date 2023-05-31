@@ -18,7 +18,7 @@
 
         public virtual ICollection<Genre>? Genres { get; set; }
         public Director? Director { get; set; }
-        public virtual ICollection<SimilarFilms> ParentFilms { get; set; } = new List<SimilarFilms>();
-        public virtual ICollection<SimilarFilms> SimilarFilms { get; set; } = new List<SimilarFilms>();
+        public virtual ICollection<SimilarFilm> ParentFilms { get; set; } = new List<SimilarFilm>();
+        public virtual ICollection<SimilarFilm> SimilarFilms { get; set; } = new List<SimilarFilm>();
     }
 }

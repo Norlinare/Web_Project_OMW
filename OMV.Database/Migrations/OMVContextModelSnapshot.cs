@@ -112,7 +112,7 @@ namespace OMV.Video.Database.Migrations
                     b.ToTable("Genres");
                 });
 
-            modelBuilder.Entity("OMV.Video.Database.Entities.SimilarFilms", b =>
+            modelBuilder.Entity("OMV.Video.Database.Entities.SimilarFilm", b =>
                 {
                     b.Property<int?>("ParentFilmId")
                         .HasColumnType("int");
@@ -157,21 +157,21 @@ namespace OMV.Video.Database.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("OMV.Video.Database.Entities.SimilarFilms", b =>
+            modelBuilder.Entity("OMV.Video.Database.Entities.SimilarFilm", b =>
                 {
                     b.HasOne("OMV.Video.Database.Entities.Film", "ParentFilm")
                         .WithMany("ParentFilms")
                         .HasForeignKey("ParentFilmId")
                         .IsRequired();
 
-                    b.HasOne("OMV.Video.Database.Entities.Film", "SimilarFilm")
+                    b.HasOne("OMV.Video.Database.Entities.Film", "SimilarFilmToParent")
                         .WithMany("SimilarFilms")
                         .HasForeignKey("SimilarFilmId")
                         .IsRequired();
 
                     b.Navigation("ParentFilm");
 
-                    b.Navigation("SimilarFilm");
+                    b.Navigation("SimilarFilmToParent");
                 });
 
             modelBuilder.Entity("OMV.Video.Database.Entities.Director", b =>

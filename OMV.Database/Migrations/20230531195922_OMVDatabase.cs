@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OMV.Video.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class OMVTables : Migration
+    public partial class OMVDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

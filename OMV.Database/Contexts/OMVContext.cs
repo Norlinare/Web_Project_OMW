@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OMV.Video.Database.Entities;
-
-namespace OMV.Video.Database.Contexts
+﻿namespace OMV.Video.Database.Contexts
 {
     public class OMVContext : DbContext
     {
@@ -31,20 +28,20 @@ namespace OMV.Video.Database.Contexts
                 }
                 );
 
-            modelBuilder.Entity<SimilarFilms>()
+            modelBuilder.Entity<SimilarFilm>()
                 .HasOne(sf => sf.ParentFilm)
                 .WithMany(f => f.ParentFilms)
                 .HasForeignKey(sf => sf.ParentFilmId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<SimilarFilms>()
-                .HasOne(sf => sf.SimilarFilm)
+            modelBuilder.Entity<SimilarFilm>()
+                .HasOne(sf => sf.SimilarFilmToParent)
                 .WithMany(f => f.SimilarFilms)
                 .HasForeignKey(sf => sf.SimilarFilmId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<SimilarFilms>()
-                .HasKey(nameof(SimilarFilms.ParentFilmId), nameof(SimilarFilms.SimilarFilmId));
+            modelBuilder.Entity<SimilarFilm>()
+                .HasKey(nameof(SimilarFilm.ParentFilmId), nameof(SimilarFilm.SimilarFilmId));
 
             base.OnModelCreating(modelBuilder);
         }
@@ -54,6 +51,7 @@ namespace OMV.Video.Database.Contexts
         public DbSet<Film> Films { get; set; }
         public DbSet<FilmGenre> FilmGenres { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<SimilarFilm> SimilarFilms { get; set; }
 
     }
 }
