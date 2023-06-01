@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace OMV.Video.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class OMVDatabase : Migration
+    public partial class FirstMigrationWithSeedData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -105,6 +107,76 @@ namespace OMV.Video.Database.Migrations
                         column: x => x.SimilarFilmId,
                         principalTable: "Films",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Directors",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Steven Spielberg" },
+                    { 2, "Clint Eastwood" },
+                    { 3, "Tim Burton" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Adventure" },
+                    { 2, "Sci-Fi" },
+                    { 3, "Horror" },
+                    { 4, "Western" },
+                    { 5, "Sport" },
+                    { 6, "Action" },
+                    { 7, "Mystery" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Films",
+                columns: new[] { "Id", "Description", "DirectorId", "FilmUrl", "Free", "Released", "Title" },
+                values: new object[,]
+                {
+                    { 1, "An adventurer goes looking for the Crystal Skull in a temple.", 1, "https://www.youtube.com/watch?v=WAdJf4wTC5Y", false, new DateTime(2008, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "Indiana Jones and the Kingdom of the Crystal Skull" },
+                    { 2, "Dinosaurs get released by accident on an amusement park and wreck havoc.", 1, "https://www.youtube.com/watch?v=lc0UehYemQA", false, new DateTime(1993, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jurassic Park" },
+                    { 3, "A shark attacks people at a beach.", 1, "https://www.youtube.com/watch?v=U1fu_sA7XhE", true, new DateTime(1975, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Jaws" },
+                    { 4, "A story in space.", 2, "https://www.youtube.com/watch?v=WjIMiGb_tmM", true, new DateTime(2000, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "Space Cowboys" },
+                    { 5, "A western story about a man.", 2, "https://www.youtube.com/watch?v=SGzz3hh1jHc", true, new DateTime(1985, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pale Rider" },
+                    { 6, "A story about a sports player in South Africa.", 2, "https://www.youtube.com/watch?v=RZY8c_a_dlQ", false, new DateTime(2009, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Invictus" },
+                    { 7, "A boy's parents gets murdered and the son take an oath to avenge them and fight off evil.", 3, "https://www.youtube.com/watch?v=dgC9Q0uhX70", true, new DateTime(1989, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Batman" },
+                    { 8, "Alice falls down a hole and has to save a kingdom.", 3, "https://www.youtube.com/watch?v=9POCgSRVvf0", false, new DateTime(2010, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "Alice in Wonderland" },
+                    { 9, "A boy finds a mysterious house with mysterious people.", 3, "https://www.youtube.com/watch?v=tV_IhWE4LP0", false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2016), "Miss Peregrine's Home for Peculiar Children" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "FilmGenres",
+                columns: new[] { "FilmId", "GenreId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 8, 1 },
+                    { 2, 2 },
+                    { 4, 2 },
+                    { 3, 3 },
+                    { 5, 4 },
+                    { 6, 5 },
+                    { 7, 6 },
+                    { 9, 7 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SimilarFilms",
+                columns: new[] { "ParentFilmId", "SimilarFilmId" },
+                values: new object[,]
+                {
+                    { 1, 2 },
+                    { 2, 1 },
+                    { 4, 5 },
+                    { 5, 7 },
+                    { 7, 5 },
+                    { 8, 9 },
+                    { 9, 8 }
                 });
 
             migrationBuilder.CreateIndex(

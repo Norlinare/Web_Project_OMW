@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OMV.Video.Database.Contexts;
 
@@ -11,9 +12,11 @@ using OMV.Video.Database.Contexts;
 namespace OMV.Video.Database.Migrations
 {
     [DbContext(typeof(OMVContext))]
-    partial class OMVContextModelSnapshot : ModelSnapshot
+    [Migration("20230601004800_FirstMigrationWithSeedData")]
+    partial class FirstMigrationWithSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,6 +3,9 @@
     public class OMVContext : DbContext
     {
 
+        private readonly OMVContext _context;
+        private SeedData.SeedData _seedData = new SeedData.SeedData();
+
         public OMVContext(DbContextOptions options) : base(options)
         {
 
@@ -42,6 +45,8 @@
 
             modelBuilder.Entity<SimilarFilm>()
                 .HasKey(nameof(SimilarFilm.ParentFilmId), nameof(SimilarFilm.SimilarFilmId));
+
+            _seedData.SeedAll(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
