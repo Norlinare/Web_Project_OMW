@@ -79,3 +79,4 @@ C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Video.API\bin\Debug\
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Video.API\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Video.API\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Video.API\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Video.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

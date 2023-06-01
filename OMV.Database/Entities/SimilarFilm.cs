@@ -1,6 +1,6 @@
 ﻿namespace OMV.Video.Database.Entities
 {
-    public class SimilarFilm
+    public class SimilarFilm : IReferenceEntity
     {
 
         public int? ParentFilmId { get; set; }

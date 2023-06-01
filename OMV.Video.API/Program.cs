@@ -23,6 +23,7 @@ builder.Services.AddDbContext<OMVContext>(
 options => options.UseSqlServer(
  builder.Configuration.GetConnectionString("OMVConnection")));
 
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 

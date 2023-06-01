@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pxXZXXKdw7XwfZzVCcBN7sSKzKuP1Oj/NoL2DCUvxko8WFyDkBmB141cweMkTpPw0MvISnHbnysao7PdPF8SFA==",
+  "dgSpecHash": "j47JowlAiulT+kDpHDVqPF6R5sFuEAU5jpvKEyH9uHgfH8LfRKkHdN10k/OLjx/GookkTDbVLO7qht0nBkoVXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Imir\\source\\repos\\Official\\Lab\\Ny Labb Webb C#\\OMV.Video.API\\OMV.Video.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Imir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Imir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
