@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace OMV.Common.DTOs
+﻿namespace OMV.Common.DTOs
 {
     public class FilmDTO
     {
@@ -12,14 +10,14 @@ namespace OMV.Common.DTOs
         public string? FilmUrl { get; set; }
         public int DirectorId { get; set; }
 
-        [NotMapped]
+
         public List<GenreDTO> Genres { get; set; } = new();
-        [NotMapped]
+
         public DirectorDTO Director { get; set; } = new();
-        [NotMapped]
-        public List<SimilarFilmsDTO> ParentFilms { get; set; } = new();
-        [NotMapped]
-        public List<SimilarFilmsDTO> SimilarFilms { get; set; } = new();
+
+        public List<SimilarFilmDTO> ParentFilms { get; set; } = new();
+
+        public List<SimilarFilmDTO> SimilarFilms { get; set; } = new();
     }
 
     public class FilmCreateDTO

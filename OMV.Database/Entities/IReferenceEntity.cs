@@ -1,6 +1,6 @@
-﻿namespace OMV.Video.Database.Entities
-{
-    public interface IReferenceEntity
-    {
-    }
-}
+﻿//namespace OMV.Video.Database.Entities
+//{
+//    public interface IReferenceEntity
+//    {
+//    }
+//}

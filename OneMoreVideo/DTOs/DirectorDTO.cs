@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace OMV.Common.DTOs
+﻿namespace OMV.Common.DTOs
 {
     public class DirectorDTO
     {
         public int Id { get; set; }
         public string? Name { get; set; }
 
-        [NotMapped]
+
         public List<FilmDTO> Films { get; set; } = new();
     }
 

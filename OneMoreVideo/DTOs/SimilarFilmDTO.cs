@@ -1,6 +1,6 @@
 ﻿namespace OMV.Common.DTOs
 {
-    public class SimilarFilmsDTO
+    public class SimilarFilmDTO
     {
         public int ParentFilmId { get; set; }
         public int SimilarFilmId { get; set; }

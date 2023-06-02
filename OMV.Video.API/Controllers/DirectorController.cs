@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using OMV.Video.Database.Entities;
+﻿
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,8 +11,6 @@ namespace OMV.Video.API.Controllers
     [ApiController]
     public class DirectorController : ControllerBase
     {
-        List<Director> directors = new List<Director>();
-
         private readonly IMapper _mapper;
 
         private readonly OMVContext _context;
@@ -26,11 +22,14 @@ namespace OMV.Video.API.Controllers
 
         // GET: api/<DirectorController>
         [HttpGet]
-        public async Task<ActionResult<List<Director>>> GetDirectors()
+        public async Task<ActionResult<DbService<List<Director>>>> GetDirectors()
         {
-            directors = await _context.Directors.ToListAsync();
-
-            return Ok(directors);
+            var directors = await _context.Directors.ToListAsync();
+            var response = new DbService<List<Director>>()
+            {
+                Data = directors
+            };
+            return Ok(response);
         }
 
 

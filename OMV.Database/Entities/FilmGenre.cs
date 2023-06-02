@@ -1,6 +1,6 @@
 ﻿namespace OMV.Video.Database.Entities
 {
-    public class FilmGenre : IReferenceEntity
+    public class FilmGenre : IEntity
     {
         [Key]
         public int FilmId { get; set; }
