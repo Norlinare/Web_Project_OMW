@@ -2,6 +2,16 @@
 {
     public class FilmGenreDTO
     {
+        public FilmGenreDTO()
+        {
+
+        }
+        public FilmGenreDTO(int filmId, int genreId)
+        {
+            filmId = FilmId;
+            genreId = GenreId;
+        }
+
         public int FilmId { get; set; }
         public int GenreId { get; set; }
 

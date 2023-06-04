@@ -1,7 +1,57 @@
-﻿@*@page
-@model OMV.Admin.UI.Pages.Director.IndexModel
-@{
-}
-*@
-
+﻿@inject IAdminService AdminService
 <p>Welcome to Genre</p>
+@if (!string.IsNullOrEmpty(Alert))
+{
+    <div class="d-flex">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>@Alert</strong>
+            <button type="button" @onclick="CloseAlert" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+}
+
+<div class="d-flex me-1">
+    <a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
+    <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Index )">Index</button>
+    <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Create)">Create</button>
+</div>
+
+<GenreIndex OnClick="OnClick" Model="Model"></GenreIndex>
+
+@code {
+    public List<GenreDTO> Model { get; set; } = new();
+    public string Alert { get; set; } = string.Empty;
+    public string Navigation { get; set; } = string.Empty;
+    GenreDTO Genre { get; set; }
+
+    void ChangePageType(string pageType) => Navigation = pageType;
+    void CloseAlert() => Alert = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Alert = string.Empty;
+        Model = await AdminService.GetAsync<GenreDTO>("Genre");
+    }
+
+    async Task OnChange(string alert)
+    {
+        try
+        {
+            Alert = alert;
+            Model = await AdminService.GetAsync<GenreDTO>("Genre");
+            ChangePageType(PageType.Index);
+        }
+        catch
+        {
+            Alert = "Couldn't create/edit/delete the genre.";
+        }
+    }
+
+    async Task OnClick(ClickModel model)
+    {
+        if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
+            Genre = await AdminService.SingleAsync<GenreDTO>($"Genre/{model.Id}") ?? new();
+
+        ChangePageType(model.PageType);
+    }
+}

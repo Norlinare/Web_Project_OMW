@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OMV.Video.API", "..\OMV.Vid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OMV.Admin.UI", "..\OMV.Admin.UI\OMV.Admin.UI.csproj", "{5D9117EA-4A54-46C3-AEA4-F64003275DB0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OMV.UI.Client", "..\OMV.UI\Client\OMV.UI.Client.csproj", "{285DE01D-E349-43C0-8F10-E17FCDF30C2F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{5D9117EA-4A54-46C3-AEA4-F64003275DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9117EA-4A54-46C3-AEA4-F64003275DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9117EA-4A54-46C3-AEA4-F64003275DB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{285DE01D-E349-43C0-8F10-E17FCDF30C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{285DE01D-E349-43C0-8F10-E17FCDF30C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{285DE01D-E349-43C0-8F10-E17FCDF30C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{285DE01D-E349-43C0-8F10-E17FCDF30C2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

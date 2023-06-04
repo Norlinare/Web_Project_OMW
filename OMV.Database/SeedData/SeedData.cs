@@ -260,6 +260,11 @@
                 },
                 new SimilarFilm
                 {
+                    ParentFilmId = 5,
+                    SimilarFilmId = 4,
+                },
+                new SimilarFilm
+                {
                     ParentFilmId = 4,
                     SimilarFilmId = 5,
                 },
@@ -282,8 +287,19 @@
                 {
                     ParentFilmId = 9,
                     SimilarFilmId = 8,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 8,
+                    SimilarFilmId = 1,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 1,
+                    SimilarFilmId = 8,
                 }
                 );
+
         }
     }
 

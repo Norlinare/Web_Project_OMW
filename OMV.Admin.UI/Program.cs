@@ -33,47 +33,21 @@ void ConfigureAutoMapper()
 {
     var config = new MapperConfiguration(cfg =>
     {
+        cfg.CreateMap<FilmListDTO, FilmModel>();
+        cfg.CreateMap<FilmDTO, FilmModel>().ReverseMap();
+        cfg.CreateMap<FilmCreateDTO, FilmModel>().ForMember(dest => dest.Id, src => src.Ignore()).ReverseMap();
+        cfg.CreateMap<FilmEditDTO, FilmModel>().ReverseMap();
 
-        cfg.CreateMap<Director, DirectorDTO>()
-        .ForMember(dest => dest.Films, src => src.Ignore());
+        cfg.CreateMap<FilmEditDTO, SimilarFilmModel>();
 
-        cfg.CreateMap<DirectorCreateDTO, Director>()
-        .ForMember(dest => dest.Films, src => src.Ignore());
+        cfg.CreateMap<GenreDTO, GenreModel>().ReverseMap();
+        cfg.CreateMap<GenreCreateDTO, GenreModel>().ReverseMap();
+        cfg.CreateMap<GenreEditDTO, GenreModel>().ReverseMap();
 
-        cfg.CreateMap<DirectorEditDTO, Director>()
-        .ForMember(dest => dest.Films, src => src.Ignore());
-
-        cfg.CreateMap<DirectorEditDTO, Director>()
-        .ForMember(dest => dest.Films, src => src.Ignore());
-
-        cfg.CreateMap<Film, FilmDTO>();
-
-
-        cfg.CreateMap<FilmCreateDTO, Film>();
-        cfg.CreateMap<FilmEditDTO, Film>();
-
-        cfg.CreateMap<FilmEditDTO, Film>();
-        cfg.CreateMap<Film, FilmListDTO>().ReverseMap();
-
-
-        cfg.CreateMap<Genre, GenreDTO>();
-        cfg.CreateMap<GenreCreateDTO, Genre>()
-            .ForMember(dest => dest.Films, src => src.Ignore());
-        cfg.CreateMap<GenreEditDTO, Genre>()
-            .ForMember(dest => dest.Films, src => src.Ignore());
-        cfg.CreateMap<GenreEditDTO, Genre>()
-            .ForMember(dest => dest.Films, src => src.Ignore());
-
-
-
-        cfg.CreateMap<FilmGenreDTO, FilmGenre>();
-        cfg.CreateMap<SimilarFilmDTO, SimilarFilm>().ReverseMap();
-
-
-    })
-    {
-
-    };
+        cfg.CreateMap<DirectorDTO, DirectorModel>().ReverseMap();
+        cfg.CreateMap<DirectorCreateDTO, DirectorModel>().ReverseMap();
+        cfg.CreateMap<DirectorEditDTO, DirectorModel>().ReverseMap();
+    });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);
 }

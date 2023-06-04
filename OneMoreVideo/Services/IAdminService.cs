@@ -2,7 +2,7 @@
 {
     public interface IAdminService
     {
-        OMVHttpClient Http { get; }
+        VideoHttpClient Http { get; }
 
         Task CreateAsync<TDto>(string uri, TDto dto);
         Task DeleteAsync<TDto>(string uri);

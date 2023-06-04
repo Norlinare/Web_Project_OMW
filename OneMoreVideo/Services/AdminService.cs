@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿
 
 namespace OMV.Common.Services
 {
     public class AdminService : IAdminService
     {
-        public OMVHttpClient Http { get; }
-        public AdminService(OMVHttpClient HttpClient) => Http = HttpClient;
+        public VideoHttpClient Http { get; }
+        public AdminService(VideoHttpClient HttpClient) => Http = HttpClient;
 
         public async Task<List<TDto>> GetAsync<TDto>(string uri)
         {
@@ -21,7 +21,9 @@ namespace OMV.Common.Services
                 }
                 );
 
-                return result ?? new List<TDto>(); // Return an empty List<TDto> if the result variable is null, otherwise return result.
+                return result ?? new List<TDto>();
+
+                // Return an empty List<TDto> if the result variable is null, otherwise return result.
 
             }
             catch (Exception)
@@ -45,7 +47,9 @@ namespace OMV.Common.Services
                 }
                 );
 
-                return result ?? default; // Return an empty List<TDto> if the result variable is null, otherwise return result.
+                return result ?? default;
+
+                // Return an empty List<TDto> if the result variable is null, otherwise return result.
 
             }
             catch (Exception)
@@ -106,14 +110,10 @@ namespace OMV.Common.Services
         {
             try
             {
-
                 using HttpResponseMessage response = await Http.Client.DeleteAsync(uri);
                 response.EnsureSuccessStatusCode();
 
-
-
                 // Return an empty List<TDto> if the result variable is null, otherwise return result.
-
             }
             catch (Exception)
             {
