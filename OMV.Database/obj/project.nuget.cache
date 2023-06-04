@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kLynB5QBY9O1fnxmOqvU06O4q7CE8xRGrfGxMEeQdRkZCRriXcj2DP9T5qh1cBy8UaMDVcKIz94JgvehQTGt9g==",
+  "dgSpecHash": "7qs2tQYtPEeqiyzksxONKpc8aAHVsqs7zvCRJfcFhB19HwnWKSZ9+IuTf1rVQYm1gmGGhe2IBw2CdtulL2t42g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Imir\\source\\repos\\Official\\Lab\\Ny Labb Webb C#\\OMV.Database\\OMV.Video.Database.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\Imir\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Imir\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

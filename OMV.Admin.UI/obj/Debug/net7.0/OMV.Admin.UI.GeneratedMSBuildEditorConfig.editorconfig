@@ -24,8 +24,60 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Director/ChangeDirector.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlyZWN0b3JcQ2hhbmdlRGlyZWN0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Director/DirectorIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlyZWN0b3JcRGlyZWN0b3JJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Director/DirectorPortal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlyZWN0b3JcRGlyZWN0b3JQb3J0YWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Film/ChangeFilm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxDaGFuZ2VGaWxtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Film/FilmIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxGaWxtSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Film/FilmPortal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsbVxGaWxtUG9ydGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Genre/ChangeGenre.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VucmVcQ2hhbmdlR2VucmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Genre/GenreIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VucmVcR2VucmVJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Genre/GenrePortal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VucmVcR2VucmVQb3J0YWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/Portal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9ydGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/SimilarFilm/ChangeSimilarFilm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2ltaWxhckZpbG1cQ2hhbmdlU2ltaWxhckZpbG0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/SimilarFilm/SimilarFilmIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2ltaWxhckZpbG1cU2ltaWxhckZpbG1JbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Pages/SimilarFilm/SimilarFilmPortal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2ltaWxhckZpbG1cU2ltaWxhckZpbG1Qb3J0YWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Imir/source/repos/Official/Lab/Ny Labb Webb C\#/OMV.Admin.UI/Shared/SurveyPrompt.razor]

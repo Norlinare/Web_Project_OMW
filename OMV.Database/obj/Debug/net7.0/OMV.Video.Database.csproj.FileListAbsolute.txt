@@ -12,3 +12,6 @@ C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\obj\Debug\n
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\obj\Debug\net7.0\OMV.Video.Database.pdb
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\obj\Debug\net7.0\OMV.Video.Database.genruntimeconfig.cache
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\obj\Debug\net7.0\ref\OMV.Video.Database.dll
+C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\bin\Debug\net7.0\OMV.Common.dll
+C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\bin\Debug\net7.0\OMV.Common.pdb
+C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Database\obj\Debug\net7.0\OMV.Video.Database.csproj.CopyComplete

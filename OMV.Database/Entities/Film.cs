@@ -2,7 +2,13 @@
 {
     public class Film : IEntity
     {
-        [Key]
+        public Film()
+        {
+            SimilarFilms = new List<SimilarFilm>();
+            Genres = new List<Genre>();
+        }
+
+
         public int Id { get; set; }
 
         [MaxLength(50)]
@@ -17,8 +23,8 @@
         public int DirectorId { get; set; }
 
         public virtual ICollection<Genre>? Genres { get; set; }
-        public Director? Director { get; set; }
-        public virtual ICollection<SimilarFilm> ParentFilms { get; set; } = new List<SimilarFilm>();
-        public virtual ICollection<SimilarFilm> SimilarFilms { get; set; } = new List<SimilarFilm>();
+        public Director? Director { get; set; } = null!;
+
+        public virtual ICollection<SimilarFilm> SimilarFilms { get; set; }
     }
 }

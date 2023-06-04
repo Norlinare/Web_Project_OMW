@@ -47,7 +47,7 @@
         }
 
 
-        public void SeedFilm(ModelBuilder modelBuilder)
+        public static void SeedFilm(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Film>().HasData(
                 //Steven Spielberg
@@ -286,5 +286,6 @@
                 );
         }
     }
-}
 
+
+}

@@ -10,14 +10,8 @@
         public string? FilmUrl { get; set; }
         public int DirectorId { get; set; }
 
-
-        public List<GenreDTO> Genres { get; set; } = new();
-
         public DirectorDTO Director { get; set; } = new();
 
-        public List<SimilarFilmDTO> ParentFilms { get; set; } = new();
-
-        public List<SimilarFilmDTO> SimilarFilms { get; set; } = new();
     }
 
     public class FilmCreateDTO
@@ -33,5 +27,11 @@
     public class FilmEditDTO : FilmCreateDTO
     {
         public int Id { get; set; }
+    }
+
+    public class FilmListDTO : FilmDTO
+    {
+        public List<SimilarFilmDTO> SimilarFilms { get; set; } = new();
+        public List<GenreDTO> Genres { get; set; } = new();
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Genre : IEntity
     {
-        [Key]
+
         public int Id { get; set; }
 
         [MaxLength(50)]

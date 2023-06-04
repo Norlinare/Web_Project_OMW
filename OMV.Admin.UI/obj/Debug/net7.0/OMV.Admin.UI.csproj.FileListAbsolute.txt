@@ -74,3 +74,4 @@ C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Admin.UI\bin\Debug\n
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Admin.UI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Admin.UI\bin\Debug\net7.0\OMV.Video.Database.dll
 C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Admin.UI\bin\Debug\net7.0\OMV.Video.Database.pdb
+C:\Users\Imir\source\repos\Official\Lab\Ny Labb Webb C#\OMV.Admin.UI\bin\Debug\net7.0\Newtonsoft.Json.dll

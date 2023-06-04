@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "j47JowlAiulT+kDpHDVqPF6R5sFuEAU5jpvKEyH9uHgfH8LfRKkHdN10k/OLjx/GookkTDbVLO7qht0nBkoVXA==",
+  "dgSpecHash": "BVmndoD34M+s1EFeu6HnZAcIA1ZOgN330bGMWndlMcZerEwhCvLX3xHVfeE+pTToaztiLQGL79uocuX16MOu+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Imir\\source\\repos\\Official\\Lab\\Ny Labb Webb C#\\OMV.Video.API\\OMV.Video.API.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\Imir\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Imir\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\Imir\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",

@@ -8,7 +8,7 @@
 
 	<ItemGroup>
 		<Folder Include="Authentication - Later\" />
-		<Folder Include="Classes - Later\" />
+		<Folder Include="Pages\FilmGenre\" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -4,20 +4,20 @@
     {
 
 
-        private SeedData.SeedData _seedData = new SeedData.SeedData();
+        private readonly SeedData.SeedData _seedData = new SeedData.SeedData();
 
-        public OMVContext(DbContextOptions options) : base(options)
+        public OMVContext(DbContextOptions<OMVContext> options) : base(options)
         {
 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes()
-                .SelectMany(e => e.GetForeignKeys()))
-            {
-                relationship.DeleteBehavior = DeleteBehavior.Restrict;
-            }
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<SimilarFilm>()
+                .HasKey(sf => new { sf.ParentFilmId, sf.SimilarFilmId });
+            modelBuilder.Entity<SimilarFilm>().HasKey(f => new { f.ParentFilmId, f.SimilarFilmId });
 
             modelBuilder.Entity<Film>()
                 .HasMany(f => f.Genres)
@@ -31,32 +31,29 @@
                 }
                 );
 
-            modelBuilder.Entity<SimilarFilm>()
-                .HasOne(sf => sf.ParentFilm)
-                .WithMany(f => f.ParentFilms)
-                .HasForeignKey(sf => sf.ParentFilmId)
+
+
+            modelBuilder.Entity<Film>()
+                .HasMany(f => f.SimilarFilms)
+                .WithOne(fg => fg.ParentFilm)
+                .HasForeignKey(fg => fg.ParentFilmId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<SimilarFilm>()
-                .HasOne(sf => sf.SimilarFilmToParent)
-                .WithMany(f => f.SimilarFilms)
-                .HasForeignKey(sf => sf.SimilarFilmId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
 
-            modelBuilder.Entity<SimilarFilm>()
-                .HasKey(nameof(SimilarFilm.ParentFilmId), nameof(SimilarFilm.SimilarFilmId));
-
-            base.OnModelCreating(modelBuilder);
-
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
             _seedData.SeedAll(modelBuilder);
         }
-
 
         public DbSet<Director> Directors { get; set; }
         public DbSet<Film> Films { get; set; }
         public DbSet<FilmGenre> FilmGenres { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<SimilarFilm> SimilarFilms { get; set; }
+
 
     }
 }

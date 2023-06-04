@@ -5,17 +5,20 @@
         public int ParentFilmId { get; set; }
         public int SimilarFilmId { get; set; }
 
-        public FilmDTO ParentFilm { get; set; } = new FilmDTO();
-        public FilmDTO SimilarFilm { get; set; } = new FilmDTO();
+        public SimilarFilmDTO(int parentFilmId, int similarFilmId)
+        {
+            ParentFilmId = parentFilmId;
+            SimilarFilmId = similarFilmId;
+        }
     }
 
-    public class SimilarFilmsCreateDTO
+    public class SimilarFilmCreateDTO
     {
         public int ParentFilmId { get; set; }
         public int SimilarFilmId { get; set; }
     }
 
-    public class SimilarFilmsEditDTO : SimilarFilmsCreateDTO
+    public class SimilarFilmEditDTO : SimilarFilmCreateDTO
     {
 
     }

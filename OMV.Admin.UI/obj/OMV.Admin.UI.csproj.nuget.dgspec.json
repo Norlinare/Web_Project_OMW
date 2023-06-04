@@ -103,7 +103,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Imir\\source\\repos\\Official\\Lab\\Ny Labb Webb C#\\OneMoreVideo\\OMV.Common.csproj": {
+                "projectPath": "C:\\Users\\Imir\\source\\repos\\Official\\Lab\\Ny Labb Webb C#\\OneMoreVideo\\OMV.Common.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -195,6 +199,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
