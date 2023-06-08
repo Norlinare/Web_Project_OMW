@@ -25,6 +25,7 @@
     DirectorDTO Director { get; set; }
 
     void ChangePageType(string pageType) => Navigation = pageType;
+
     void CloseAlert() => Alert = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -51,7 +52,7 @@
     async Task OnClick(ClickModel model)
     {
         if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
-            Director = await AdminService.SingleAsync<DirectorDTO>("directors/{model.Id}") ?? new();
+            Director = await AdminService.SingleAsync<DirectorDTO>($"Director/{model.Id}") ?? new();
 
         ChangePageType(model.PageType);
     }

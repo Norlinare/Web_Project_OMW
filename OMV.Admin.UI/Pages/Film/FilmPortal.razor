@@ -50,7 +50,7 @@
     async Task OnClick(ClickModel model)
     {
         if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
-            Film = await AdminService.SingleAsync<FilmListDTO>($"films/{model.Id}") ?? new();
+            Film = await AdminService.SingleAsync<FilmListDTO>($"Film/{model.Id}") ?? new();
 
         ChangePageType(model.PageType);
     }

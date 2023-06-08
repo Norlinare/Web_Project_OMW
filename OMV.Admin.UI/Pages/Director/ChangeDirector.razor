@@ -1,6 +1,7 @@
 ﻿﻿
 @inject IAdminService adminService
 @inject IMapper Mapper
+
 <div class="d-xl-flex justify-content-center">
     <EditForm Model="@Model" OnValidSubmit="@OnFormSubmit" class="mb-5 border border-1 border-secondary p-2 w-25">
         <DataAnnotationsValidator />
@@ -39,9 +40,6 @@
     [Parameter] public EventCallback<string> OnChanged { get; set; }
 
 
-
-
-
     protected override async Task OnInitializedAsync() => Model = Mapper.Map<DirectorModel>(DirectorEditDTO);
 
     private async Task OnFormSubmit()
@@ -68,7 +66,7 @@
         }
         catch
         {
-            await OnChanged.InvokeAsync("Couldn't create/edit/delete the film.");
+            await OnChanged.InvokeAsync("Couldn't create/edit/delete the Director.");
         }
     }
 }
