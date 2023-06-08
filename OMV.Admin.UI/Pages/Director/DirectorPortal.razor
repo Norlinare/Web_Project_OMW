@@ -10,6 +10,19 @@
     </div>
 }
 
+@if (Navigation == PageType.Create)
+{
+    <ChangeDirector Page="@Navigation" OnChanged="OnChange"></ChangeDirector>
+}
+@if (Navigation == PageType.Delete || Navigation == PageType.Edit)
+{
+    <ChangeDirector Page="@Navigation" OnChanged="OnChange" Model="Director"></ChangeDirector>
+}
+
+
+
+
+
 <div class="d-flex me-1">
     <a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
     <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Index )">Index</button>
@@ -22,7 +35,7 @@
     public List<DirectorDTO> Model { get; set; } = new();
     public string Alert { get; set; } = string.Empty;
     public string Navigation { get; set; } = string.Empty;
-    DirectorDTO Director { get; set; }
+    public DirectorDTO Director { get; set; } = new();
 
     void ChangePageType(string pageType) => Navigation = pageType;
 
@@ -32,7 +45,7 @@
     {
         Alert = string.Empty;
         Model = await AdminService.GetAsync<DirectorDTO>("Director");
-        
+
     }
 
     async Task OnChange(string alert)
@@ -54,6 +67,7 @@
         if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
             Director = await AdminService.SingleAsync<DirectorDTO>($"Director/{model.Id}") ?? new();
 
-        ChangePageType(model.PageType);
+        Navigation = model.PageType;
+        ChangePageType(Navigation);
     }
 }

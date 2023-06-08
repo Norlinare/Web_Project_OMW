@@ -18,6 +18,7 @@
             <div class="mb-3">
                 <InputText id="released" class="form-control me-2" @bind-Value="Model.Name" placeholder="Name"></InputText>
                 <ValidationMessage For="@(() => Model.Name)" />
+                    <p>Hello</p>
             </div>
 
         }
@@ -28,19 +29,20 @@
 
 
 @code {
-    DirectorModel Model { get; set; } = new();
+    [Parameter] public DirectorDTO Model { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
-    [Parameter] public DirectorDTO DirectorGetDTO { get; set; } = new();
-    [Parameter] public DirectorCreateDTO DirectorCreateDTO { get; set; } = new();
-    [Parameter] public DirectorEditDTO DirectorEditDTO { get; set; } = new();
-    [Parameter] public DirectorEditDTO DirectorDeleteDTO { get; set; } = new();
+    [Parameter] public DirectorDTO Director { get; set; } = new();
+    [Parameter] public DirectorCreateDTO DirectorCreate { get; set; } = new();
+    [Parameter] public DirectorEditDTO DirectorEdit { get; set; } = new();
+    [Parameter] public DirectorEditDTO DirectorDelete { get; set; } = new();
+    List<DirectorDTO> _directors { get; set; } = new();
 
 
     [Parameter] public EventCallback<string> OnClick { get; set; }
     [Parameter] public EventCallback<string> OnChanged { get; set; }
 
 
-    protected override async Task OnInitializedAsync() => Model = Mapper.Map<DirectorModel>(DirectorEditDTO);
+    protected override async Task OnInitializedAsync() => _directors = await adminService.GetAsync<DirectorDTO>("Director");
 
     private async Task OnFormSubmit()
     {
@@ -49,18 +51,18 @@
 
             if (Page.Equals(PageType.Create))
             {
-                DirectorCreateDTO = Mapper.Map<DirectorCreateDTO>(Model);
-                await adminService.CreateAsync<DirectorCreateDTO>("Director", DirectorCreateDTO);
+                DirectorCreate = Mapper.Map<DirectorCreateDTO>(Model);
+                await adminService.CreateAsync<DirectorCreateDTO>("Director", DirectorCreate);
             }
             else if (Page.Equals(PageType.Edit))
             {
-                DirectorEditDTO = Mapper.Map<DirectorEditDTO>(Model);
-                await adminService.UpdateAsync<DirectorEditDTO>($"Director/{DirectorEditDTO.Id}", DirectorEditDTO);
+                DirectorEdit = Mapper.Map<DirectorEditDTO>(Model);
+                await adminService.UpdateAsync<DirectorEditDTO>($"Director/{DirectorEdit.Id}", DirectorEdit);
             }
             else if (Page.Equals(PageType.Delete))
             {
-                DirectorDeleteDTO = Mapper.Map<DirectorEditDTO>(Model);
-                await adminService.DeleteAsync<DirectorEditDTO>($"Director/{DirectorDeleteDTO.Id}");
+                DirectorDelete = Mapper.Map<DirectorEditDTO>(Model);
+                await adminService.DeleteAsync<DirectorEditDTO>($"Director/{DirectorDelete.Id}");
             }
             await OnChanged.InvokeAsync("");
         }
