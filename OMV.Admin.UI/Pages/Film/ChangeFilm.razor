@@ -143,12 +143,12 @@
         //Remove all genres from this film
         for (int i = 0; i < SavedGenres.Length; i++)
         {
-            FilmGenreDeleteDTO deleteDto = new FilmGenreDeleteDTO
+            FilmGenreCreateDTO deleteDto = new FilmGenreCreateDTO
             (
                 model.Id,
                 SavedGenres[i]
             );
-            await adminService.DeleteAsyncRef<FilmGenreDeleteDTO>($"FilmGenre", deleteDto);
+            await adminService.DeleteAsyncRef<FilmGenreCreateDTO>($"FilmGenre", deleteDto);
         }
     }
     private async Task AddGenres(FilmModel model)

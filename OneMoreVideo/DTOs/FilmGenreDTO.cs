@@ -2,7 +2,15 @@
 {
     public class FilmGenreDTO
     {
+        public FilmGenreDTO()
+        {
 
+        }
+        public FilmGenreDTO(int filmId, int genreId)
+        {
+            FilmId = filmId;
+            GenreId = genreId;
+        }
 
         public int FilmId { get; set; }
         public int GenreId { get; set; }
@@ -12,25 +20,28 @@
     }
     public class FilmGenreCreateDTO
     {
-
-
         public int FilmId { get; set; }
         public int GenreId { get; set; }
-    }
-    public class FilmGenreEditDTO : FilmGenreCreateDTO
-    {
-    }
-
-    public class FilmGenreDeleteDTO : FilmGenreCreateDTO
-    {
-        public FilmGenreDeleteDTO()
+        public FilmGenreCreateDTO()
         {
 
         }
-        public FilmGenreDeleteDTO(int filmId, int genreId)
+        public FilmGenreCreateDTO(int filmId, int genreId)
         {
             FilmId = filmId;
             GenreId = genreId;
         }
     }
+
+
 }
+public class FilmGenreEditDTO : FilmGenreCreateDTO
+{
+
+}
+
+public class FilmGenreDeleteDTO : FilmGenreCreateDTO
+{
+
+}
+
