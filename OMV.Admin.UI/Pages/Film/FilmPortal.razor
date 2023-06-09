@@ -16,7 +16,7 @@
 }
 @if (Navigation == PageType.Delete || Navigation == PageType.Edit)
 {
-    <ChangeFilm Page="@Navigation" OnChanged="OnChange" FilmListDTO="Film"></ChangeFilm>
+    <ChangeFilm Page="@Navigation" OnChanged="OnChange" FilmListDTO="Film" ModelList="Model"></ChangeFilm>
 }
 
 <div class="d-flex me-1">

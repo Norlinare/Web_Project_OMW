@@ -78,6 +78,7 @@
     FilmGenreModel FilmGenreModel { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
     FilmGenreCreateDTO FilmGenreCreate { get; set; } = new();
+    [Parameter] public List<FilmListDTO> ModelList { get; set; }
     [Parameter] public FilmListDTO FilmListDTO { get; set; } = new();
     [Parameter] public FilmCreateDTO FilmCreateDTO { get; set; } = new();
     [Parameter] public FilmEditDTO FilmEditDTO { get; set; } = new();
@@ -119,7 +120,7 @@
             }
             else if (Page.Equals(PageType.Delete))
             {
-                await RemoveSimilarfilms(Model);
+                await RemoveSimilarFilms(Model);
                 FilmDeleteDTO = Mapper.Map<FilmEditDTO>(Model);
                 await RemoveGenres(Model);
                 await adminService.DeleteAsync<FilmEditDTO>($"Film/{FilmDeleteDTO.Id}");
@@ -177,9 +178,55 @@
         return SelectedGenres;
     }
 
-    private async Task RemoveSimilarfilms(FilmModel model)
+    private async Task RemoveSimilarFilms(FilmModel model)
     {
         //Remove all similarfilms from this film
+        foreach (var Film in ModelList)
+        {
+            if (Film.Id == model.Id)
+            {
+                List<int> ActiveFilmIdCollection = new List<int>();
+
+                foreach (var Similar in Film.SimilarFilms)
+                {
+                    ActiveFilmIdCollection.Add(Similar.SimilarFilmId);
+                }
+
+                foreach (var Id in ActiveFilmIdCollection)
+                {
+                    //Id should remove at foreign key
+                    //Removes SimilarFilms
+
+                    SimilarFilmDTO deleteDto = new
+                        (
+                            model.Id,
+                            Id
+                        );
+                    await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto);
+
+                    SimilarFilmDTO deleteDto2 = new
+                    (
+                        Id,
+                        model.Id
+                    );
+                    await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto2);
+
+                }
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         foreach (var film in model.SimilarFilms)
         {
