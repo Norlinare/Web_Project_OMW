@@ -84,10 +84,7 @@ namespace OMV.Common.Services
         {
             try
             {
-                //var request = new HttpRequestMessage(HttpMethod.Put, uri);
-                //request.Content = new StringContent(JsonConvert.SerializeObject(dto), Encoding.UTF8, "application/json");
-                //HttpResponseMessage response = _Http.Client.Send(request);
-                //response.EnsureSuccessStatusCode();
+
                 using StringContent jsonContent = new
                 (
                     JsonConvert.SerializeObject(dto),

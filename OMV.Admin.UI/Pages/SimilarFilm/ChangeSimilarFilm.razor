@@ -16,7 +16,7 @@
                 {
                     @if(film.Id != Model.Id)
                     {
-                        <option value="@film.Id">@film.Title</option>
+                        <option value="@film.Id">@film.Title (Id @film.Id)</option>
                     }
                 }
             </InputSelect>
@@ -31,7 +31,7 @@
 @code {
     FilmModel Model { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
-    [Parameter] public FilmListDTO FilmInfoDTO { get; set; } = new();
+    [Parameter] public FilmListDTO FilmListDTO { get; set; } = new();
 
 
     [Parameter] public EventCallback<string> OnClick { get; set; }
@@ -45,7 +45,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Model = Mapper.Map<FilmModel>(FilmInfoDTO);
+        Model = Mapper.Map<FilmModel>(FilmListDTO);
         SavedSimilarFilms = GetSelectedSimilarFilmsFromDb(Model);
         Films = await adminService.GetAsync<FilmListDTO>("Film");
 

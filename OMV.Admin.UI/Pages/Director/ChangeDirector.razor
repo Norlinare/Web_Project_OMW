@@ -18,7 +18,6 @@
             <div class="mb-3">
                 <InputText id="released" class="form-control me-2" @bind-Value="Model.Name" placeholder="Name"></InputText>
                 <ValidationMessage For="@(() => Model.Name)" />
-                    <p>Hello</p>
             </div>
 
         }
@@ -29,20 +28,20 @@
 
 
 @code {
-    [Parameter] public DirectorDTO Model { get; set; } = new();
+    DirectorModel Model { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
     [Parameter] public DirectorDTO Director { get; set; } = new();
     [Parameter] public DirectorCreateDTO DirectorCreate { get; set; } = new();
     [Parameter] public DirectorEditDTO DirectorEdit { get; set; } = new();
     [Parameter] public DirectorEditDTO DirectorDelete { get; set; } = new();
-    List<DirectorDTO> _directors { get; set; } = new();
+    
 
 
     [Parameter] public EventCallback<string> OnClick { get; set; }
     [Parameter] public EventCallback<string> OnChanged { get; set; }
 
 
-    protected override async Task OnInitializedAsync() => _directors = await adminService.GetAsync<DirectorDTO>("Director");
+    protected override async Task OnInitializedAsync() => Model = Mapper.Map<DirectorModel>(Director);
 
     private async Task OnFormSubmit()
     {

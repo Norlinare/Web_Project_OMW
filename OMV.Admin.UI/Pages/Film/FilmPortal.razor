@@ -10,6 +10,15 @@
     </div>
 }
 
+@if (Navigation == PageType.Create)
+{
+    <ChangeFilm Page="@Navigation" OnChanged="OnChange"></ChangeFilm>
+}
+@if (Navigation == PageType.Delete || Navigation == PageType.Edit)
+{
+    <ChangeFilm Page="@Navigation" OnChanged="OnChange" FilmListDTO="Film"></ChangeFilm>
+}
+
 <div class="d-flex me-1">
     <a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
     <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Index )">Index</button>

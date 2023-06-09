@@ -16,7 +16,7 @@
 }
 @if (Navigation == PageType.Delete || Navigation == PageType.Edit)
 {
-    <ChangeDirector Page="@Navigation" OnChanged="OnChange" Model="Director"></ChangeDirector>
+    <ChangeDirector Page="@Navigation" OnChanged="OnChange" Director="Director"></ChangeDirector>
 }
 
 
@@ -35,7 +35,7 @@
     public List<DirectorDTO> Model { get; set; } = new();
     public string Alert { get; set; } = string.Empty;
     public string Navigation { get; set; } = string.Empty;
-    public DirectorDTO Director { get; set; } = new();
+    DirectorDTO Director { get; set; } = new();
 
     void ChangePageType(string pageType) => Navigation = pageType;
 

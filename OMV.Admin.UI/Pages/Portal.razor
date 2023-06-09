@@ -1,4 +1,5 @@
 ﻿@page "/{Route}"
+
 <h3>@Route</h3>
 
 @if (Route == Routes.Films)
@@ -8,6 +9,10 @@
 @if (Route == Routes.Directors)
 {
     <DirectorPortal />
+}
+@if (Route == Routes.FilmGenres)
+{
+    <FilmGenrePortal />
 }
 @if (Route == Routes.Genres)
 {

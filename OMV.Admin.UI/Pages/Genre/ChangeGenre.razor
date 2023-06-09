@@ -30,7 +30,7 @@
 @code {
     GenreModel Model { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
-    [Parameter] public GenreDTO GenreGetDTO { get; set; } = new();
+    [Parameter] public GenreDTO GenreDTO { get; set; } = new();
     [Parameter] public GenreCreateDTO GenreCreateDTO { get; set; } = new();
     [Parameter] public GenreEditDTO GenreEditDTO { get; set; } = new();
     [Parameter] public GenreEditDTO GenreDeleteDTO { get; set; } = new();
@@ -45,7 +45,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Model = Mapper.Map<GenreModel>(GenreGetDTO);
+        Model = Mapper.Map<GenreModel>(GenreDTO);
     }
 
     private async Task OnFormSubmit()

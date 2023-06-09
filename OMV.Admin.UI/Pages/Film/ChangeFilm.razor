@@ -35,14 +35,6 @@
                 <ValidationMessage For="@(() => Model.FilmUrl)" />
             </div>
             <div class="mb-3">
-                <InputText id="filmurl" class="form-control me-2" @bind-Value="Model.ImageUrl" placeholder="ImageUrl"></InputText>
-                <ValidationMessage For="@(() => Model.ImageUrl)" />
-            </div>
-            <div class="mb-3">
-                <InputText id="filmurl" class="form-control me-2" @bind-Value="Model.MarqueeUrl" placeholder="MarqueeUrl"></InputText>
-                <ValidationMessage For="@(() => Model.MarqueeUrl)" />
-            </div>
-            <div class="mb-3">
                 <label>
                     <InputCheckbox @bind-Value="Model.Free" />
                     Free Film
@@ -82,13 +74,14 @@
 
 @code {
     FilmModel Model { get; set; } = new();
+    GenreModel GenreModel { get; set; } = new();
+    FilmGenreModel FilmGenreModel { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
-    [Parameter] public FilmListDTO FilmInfoDTO { get; set; } = new();
+    FilmGenreCreateDTO FilmGenreCreate { get; set; } = new();
+    [Parameter] public FilmListDTO FilmListDTO { get; set; } = new();
     [Parameter] public FilmCreateDTO FilmCreateDTO { get; set; } = new();
     [Parameter] public FilmEditDTO FilmEditDTO { get; set; } = new();
     [Parameter] public FilmEditDTO FilmDeleteDTO { get; set; } = new();
-
-
     [Parameter] public EventCallback<string> OnClick { get; set; }
     [Parameter] public EventCallback<string> OnChanged { get; set; }
 
@@ -102,7 +95,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Model = Mapper.Map<FilmModel>(FilmInfoDTO);
+        Model = Mapper.Map<FilmModel>(FilmListDTO);
         SavedGenres = GetSelectedGenresFromDb(Model);
         Directors = await adminService.GetAsync<DirectorDTO>("Director");
         Genres = await adminService.GetAsync<GenreDTO>("Genre");
@@ -150,12 +143,12 @@
         //Remove all genres from this film
         for (int i = 0; i < SavedGenres.Length; i++)
         {
-            FilmGenreDTO deleteDto = new
+            FilmGenreDeleteDTO deleteDto = new FilmGenreDeleteDTO
             (
                 model.Id,
                 SavedGenres[i]
             );
-            await adminService.DeleteAsyncRef<FilmGenreDTO>($"FilmGenre/", deleteDto);
+            await adminService.DeleteAsyncRef<FilmGenreDeleteDTO>($"FilmGenre", deleteDto);
         }
     }
     private async Task AddGenres(FilmModel model)
@@ -163,12 +156,12 @@
         //Add all genres for this film
         for (int i = 0; i < SelectedGenres.Length; i++)
         {
-            FilmGenreDTO saveDto = new
+            FilmGenreCreateDTO saveDto = new
             (
                 model.Id,
                 SelectedGenres[i]
             );
-            await adminService.CreateAsync<FilmGenreDTO>($"FilmGenre/", saveDto);
+            await adminService.CreateAsync<FilmGenreCreateDTO>($"FilmGenre", saveDto);
         }
     }
 
