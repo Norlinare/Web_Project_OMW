@@ -37,7 +37,15 @@
 }
 public class FilmGenreEditDTO : FilmGenreCreateDTO
 {
+    public FilmGenreEditDTO()
+    {
 
+    }
+    public FilmGenreEditDTO(int filmId, int genreId)
+    {
+        FilmId = filmId;
+        GenreId = genreId;
+    }
 }
 
 public class FilmGenreDeleteDTO : FilmGenreCreateDTO

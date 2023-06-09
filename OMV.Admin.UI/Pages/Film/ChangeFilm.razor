@@ -106,7 +106,6 @@
     {
         try
         {
-
             if (Page.Equals(PageType.Create))
             {
                 FilmCreateDTO = Mapper.Map<FilmCreateDTO>(Model);
@@ -115,14 +114,14 @@
             else if (Page.Equals(PageType.Edit))
             {
                 FilmEditDTO = Mapper.Map<FilmEditDTO>(Model);
-                await adminService.UpdateAsync<FilmEditDTO>($"Film/{FilmEditDTO.Id}", FilmEditDTO);
                 await HandleGenresSubmit(Model);
+                await adminService.UpdateAsync<FilmEditDTO>($"Film/{FilmEditDTO.Id}", FilmEditDTO);
             }
             else if (Page.Equals(PageType.Delete))
             {
                 await RemoveSimilarFilms(Model);
-                FilmDeleteDTO = Mapper.Map<FilmEditDTO>(Model);
                 await RemoveGenres(Model);
+                FilmDeleteDTO = Mapper.Map<FilmEditDTO>(Model);
                 await adminService.DeleteAsync<FilmEditDTO>($"Film/{FilmDeleteDTO.Id}");
             }
             await OnChanged.InvokeAsync("");
@@ -141,28 +140,65 @@
 
     private async Task RemoveGenres(FilmModel model)
     {
-        //Remove all genres from this film
-        for (int i = 0; i < SavedGenres.Length; i++)
+        foreach (var Film in ModelList)
         {
-            FilmGenreCreateDTO deleteDto = new FilmGenreCreateDTO
-            (
-                model.Id,
-                SavedGenres[i]
-            );
-            await adminService.DeleteAsyncRef<FilmGenreCreateDTO>($"FilmGenre", deleteDto);
+            if (Film.Id == model.Id)
+            {
+                List<int> ActiveGenreIdCollection = new List<int>();
+                List<int> NewActiveGenreIdCollection = new List<int>();
+                foreach (var genre in Film.Genres)
+                {
+                    ActiveGenreIdCollection.Add(genre.Id);
+                }
+                foreach (var NewGenres in SelectedGenres)
+                {
+                    NewActiveGenreIdCollection.Add(NewGenres);
+                }
+
+                foreach (var Id in ActiveGenreIdCollection)
+                {
+                        //Removes Genre
+
+                        FilmGenreEditDTO deleteDto = new
+                            (
+                                model.Id,
+                                Id
+                            );
+                        await adminService.DeleteAsyncRef<FilmGenreEditDTO>($"FilmGenre/", deleteDto);
+                    
+                }
+
+            }
         }
     }
     private async Task AddGenres(FilmModel model)
     {
-        //Add all genres for this film
-        for (int i = 0; i < SelectedGenres.Length; i++)
+        //Add genres for this film
+        foreach (var Film in ModelList)
         {
-            FilmGenreCreateDTO saveDto = new
-            (
-                model.Id,
-                SelectedGenres[i]
-            );
-            await adminService.CreateAsync<FilmGenreCreateDTO>($"FilmGenre", saveDto);
+            if (Film.Id == model.Id)
+            {
+                
+                List<int> NewActiveGenreIdCollection = new List<int>();
+                
+                foreach (var NewGenres in SelectedGenres)
+                {
+                    NewActiveGenreIdCollection.Add(NewGenres);
+                }
+
+                foreach (var Id in NewActiveGenreIdCollection)
+                {
+
+                        FilmGenreCreateDTO createDTO = new
+                            (
+                                model.Id,
+                                Id
+                            );
+                    await adminService.CreateAsync<FilmGenreCreateDTO>($"FilmGenre/", createDTO);
+                    
+                }
+
+            }
         }
     }
 
@@ -214,36 +250,6 @@
                 }
 
             }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        foreach (var film in model.SimilarFilms)
-        {
-            SimilarFilmDTO deleteDto = new
-            (
-                film.ParentFilmId,
-                film.SimilarFilmId
-            );
-            await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto);
-
-            SimilarFilmDTO deleteDto2 = new
-            (
-                film.SimilarFilmId,
-                film.ParentFilmId
-            );
-            await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto2);
-
         }
     }
 }
