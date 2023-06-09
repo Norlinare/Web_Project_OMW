@@ -118,23 +118,42 @@
     }
     private async Task AddSimilar(FilmModel model)
     {
-        //Add all genres for this film
-        for (int i = 0; i < SelectedSimilarFilms.Length; i++)
+        foreach (var Film in ModelList)
         {
-            SimilarFilmDTO saveDto = new
-            (
-                model.Id,
-                SelectedSimilarFilms[i]
-            );
-            await adminService.CreateAsync<SimilarFilmDTO>($"similarfilms/", saveDto);
-            SimilarFilmDTO saveDto2 = new
-            (
-                SelectedSimilarFilms[i],
-                model.Id
-            );
-            await adminService.CreateAsync<SimilarFilmDTO>($"similarfilms/", saveDto2);
+            if (Film.Id == model.Id)
+            {
+                List<int> ActiveFilmIdCollection = new List<int>();
+                List<int> NewActiveFilmIdCollection = new List<int>();
+                foreach (var SimilarFilm in Film.SimilarFilms)
+                {
+                    ActiveFilmIdCollection.Add(SimilarFilm.SimilarFilmId);
+                }
+                foreach (var SimilarFilm in SelectedSimilarFilms)
+                {
+                    NewActiveFilmIdCollection.Add(SimilarFilm);
+                }
+                foreach (var Id in NewActiveFilmIdCollection)
+                {
+                    if (!ActiveFilmIdCollection.Contains(Id))
+                    {
+                        SimilarFilmDTO saveDto = new
+                        (
+                            model.Id,
+                            Id
+                        );
+                        await adminService.CreateAsync<SimilarFilmDTO>($"SimilarFilm/", saveDto);
+                        SimilarFilmDTO saveDto2 = new
+                        (
+                            Id,
+                            model.Id
+                        );
+                        await adminService.CreateAsync<SimilarFilmDTO>($"SimilarFilm/", saveDto2);
+                    }
+                }
 
+            }
         }
+
     }
 
 
