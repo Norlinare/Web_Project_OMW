@@ -6,6 +6,7 @@
     <EditForm Model="@Model" OnValidSubmit="@OnFormSubmit" class="mb-5 border border-1 border-secondary p-2 w-25">
         <DataAnnotationsValidator />
         <h4>@Page @Model.Title</h4>
+        
 
 
         @if (Page.Equals(PageType.Edit))
@@ -32,7 +33,7 @@
     FilmModel Model { get; set; } = new();
     [Parameter] public string Page { get; set; } = string.Empty;
     [Parameter] public FilmListDTO FilmListDTO { get; set; } = new();
-
+    [Parameter] public List<FilmListDTO> ModelList { get; set; }
 
     [Parameter] public EventCallback<string> OnClick { get; set; }
     [Parameter] public EventCallback<string> OnChanged { get; set; }
@@ -73,22 +74,46 @@
 
     private async Task RemoveSimilar(FilmModel model)
     {
-        //Remove all genres from this film
-        for (int i = 0; i < SavedSimilarFilms.Length; i++)
+        //Working on
+        foreach (var Film in ModelList)
         {
-            SimilarFilmDTO deleteDto = new
-            (
-                model.Id,
-                SavedSimilarFilms[i]
-            );
-            await adminService.DeleteAsyncRef<SimilarFilmDTO>($"similarfilms/", deleteDto);
+            if (Film.Id == model.Id)
+            {
+                List<int> ActiveFilmIdCollection = new List<int>();
+                List<int> NewActiveFilmIdCollection = new List<int>();
+                foreach (var SimilarFilm in Film.SimilarFilms)
+                {
+                    ActiveFilmIdCollection.Add(SimilarFilm.SimilarFilmId);
+                }
+                foreach (var SimilarFilm in SelectedSimilarFilms)
+                {
+                    NewActiveFilmIdCollection.Add(SimilarFilm);
+                }
+                foreach (var Id in ActiveFilmIdCollection)
+                {
+                    if (!NewActiveFilmIdCollection.Contains(Id))
+                    {
+                        //Id should remove at foreign key
+                        //Removes SimilarFilms
 
-            SimilarFilmDTO deleteDto2 = new
-            (
-                SavedSimilarFilms[i],
-                model.Id
-            );
-            await adminService.DeleteAsyncRef<SimilarFilmDTO>($"similarfilms/", deleteDto2);
+                        SimilarFilmDTO deleteDto = new
+                            (
+                                model.Id,
+                                Id
+                            );
+                            await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto);
+
+                            SimilarFilmDTO deleteDto2 = new
+                            (
+                                Id,
+                                model.Id
+                            );
+                        await adminService.DeleteAsyncRef<SimilarFilmDTO>($"SimilarFilm/", deleteDto2);
+                        
+                    }
+                }
+
+            }
         }
     }
     private async Task AddSimilar(FilmModel model)

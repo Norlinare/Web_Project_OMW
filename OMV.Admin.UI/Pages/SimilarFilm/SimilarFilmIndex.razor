@@ -1,6 +1,7 @@
 ﻿<table class="table mt-2">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Title</th>
       <th>Similar Films</th>
       <th></th>
@@ -12,6 +13,7 @@
     @foreach (var item in Model)
     {
         <tr>
+            <th>@item.Id</th>
             <th>@item.Title</th>
                 <td>@GetSimilarFilm(item)</td>
                 <td>
