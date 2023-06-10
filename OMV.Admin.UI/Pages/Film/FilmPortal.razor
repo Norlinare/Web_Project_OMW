@@ -16,13 +16,18 @@
 }
 @if (Navigation == PageType.Delete || Navigation == PageType.Edit)
 {
-    <ChangeFilm Page="@Navigation" OnChanged="OnChange" FilmListDTO="Film" ModelList="Model"></ChangeFilm>
+    <ChangeFilm Page="@Navigation" OnChanged="OnChange" FilmListDTO="Film" ModelList="Model" FilmIsProtected="FilmIsProtected"></ChangeFilm>
 }
 
 <div class="d-flex me-1">
     <a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
     <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Index )">Index</button>
     <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Create)">Create</button>
+    <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ProtectFromDelete()">@FilmIsProtectedMessage</button>
+</div>
+
+<div class="d-flex me-1">
+    
 </div>
 
 <FilmIndex OnClick="OnClick" Model="Model"></FilmIndex>
@@ -32,6 +37,8 @@
     public string Alert { get; set; } = string.Empty;
     public string Navigation { get; set; } = string.Empty;
     FilmListDTO Film { get; set; }
+    bool FilmIsProtected { get; set; } = false;
+    string FilmIsProtectedMessage { get; set; } = "Add Film Protection";
 
     void ChangePageType(string pageType) => Navigation = pageType;
     void CloseAlert() => Alert = string.Empty;
@@ -40,6 +47,21 @@
     {
         Alert = string.Empty;
         Model = await AdminService.GetAsync<FilmListDTO>("Film");
+    }
+
+    protected  void ProtectFromDelete()
+    {
+        if (FilmIsProtected == false)
+        {
+            FilmIsProtected = true;
+            FilmIsProtectedMessage = "Remove Film Protection";
+        }
+
+        else if (FilmIsProtected == true)
+            {
+            FilmIsProtected = false;
+            FilmIsProtectedMessage = "Add Film Protection";
+            }
     }
 
     async Task OnChange(string alert)

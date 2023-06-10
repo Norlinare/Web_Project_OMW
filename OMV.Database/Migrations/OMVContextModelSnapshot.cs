@@ -247,6 +247,21 @@ namespace OMV.Video.Database.Migrations
                         {
                             GenreId = 7,
                             FilmId = 9
+                        },
+                        new
+                        {
+                            GenreId = 6,
+                            FilmId = 1
+                        },
+                        new
+                        {
+                            GenreId = 6,
+                            FilmId = 2
+                        },
+                        new
+                        {
+                            GenreId = 7,
+                            FilmId = 8
                         });
                 });
 
@@ -369,6 +384,26 @@ namespace OMV.Video.Database.Migrations
                         {
                             ParentFilmId = 1,
                             SimilarFilmId = 8
+                        },
+                        new
+                        {
+                            ParentFilmId = 5,
+                            SimilarFilmId = 1
+                        },
+                        new
+                        {
+                            ParentFilmId = 1,
+                            SimilarFilmId = 5
+                        },
+                        new
+                        {
+                            ParentFilmId = 7,
+                            SimilarFilmId = 2
+                        },
+                        new
+                        {
+                            ParentFilmId = 2,
+                            SimilarFilmId = 7
                         });
                 });
 

@@ -241,6 +241,21 @@
                 {
                     FilmId = 9,
                     GenreId = 7,
+                },
+                new FilmGenre
+                {
+                    FilmId = 1,
+                    GenreId = 6,
+                },
+                new FilmGenre
+                {
+                    FilmId = 2,
+                    GenreId = 6,
+                },
+                new FilmGenre
+                {
+                    FilmId = 8,
+                    GenreId = 7,
                 }
                 );
         }
@@ -297,6 +312,26 @@
                 {
                     ParentFilmId = 1,
                     SimilarFilmId = 8,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 5,
+                    SimilarFilmId = 1,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 1,
+                    SimilarFilmId = 5,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 7,
+                    SimilarFilmId = 2,
+                },
+                new SimilarFilm
+                {
+                    ParentFilmId = 2,
+                    SimilarFilmId = 7,
                 }
                 );
 
