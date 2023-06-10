@@ -7,13 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Authentication\" />
-		<Folder Include="JWT\" />
-		<Folder Include="Classes\" />
-		<Folder Include="Extensions\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
